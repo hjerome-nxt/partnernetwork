@@ -1,0 +1,2425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partner Network | My Safe Spaces - Join India's Leading Mental Health Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --teal: #008B8B;
+            --teal-deep: #006666;
+            --teal-light: #20B2AA;
+            --coral: #E07A5F;
+            --coral-light: #F4A582;
+            --coral-glow: rgba(224, 122, 95, 0.15);
+            --cream: #FDF8F3;
+            --cream-dark: #f5ede3;
+            --white: #ffffff;
+            --gray-100: #f8f9fa;
+            --gray-200: #e9ecef;
+            --gray-400: #adb5bd;
+            --gray-600: #6c757d;
+            --gray-800: #343a40;
+            --success: #27ae60;
+            --font-display: 'Crimson Pro', Georgia, serif;
+            --font-body: 'DM Sans', -apple-system, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--white);
+            color: var(--gray-800);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--coral);
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 600;
+            color: var(--teal-deep);
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--gray-600);
+            max-width: 600px;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 16px 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 2px 20px rgba(0, 139, 139, 0.06);
+            transition: all 0.4s ease;
+        }
+
+        .nav.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 2px 40px rgba(0, 139, 139, 0.1);
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .nav-logo-img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .nav-logo-text {
+            font-family: var(--font-display);
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--teal-deep);
+            padding-left: 12px;
+            border-left: 2px solid var(--coral);
+        }
+
+        .nav-center {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-center a {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--teal-deep);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-center a:hover {
+            color: var(--coral);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .nav-cta {
+            background: var(--teal);
+            color: white !important;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--teal-deep) !important;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--white) 50%, var(--cream-dark) 100%);
+            padding-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(ellipse at center, var(--coral-glow) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.1); }
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--white);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--teal-deep);
+            margin-bottom: 32px;
+            box-shadow: 0 4px 20px rgba(0, 139, 139, 0.08);
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(40px, 6vw, 64px);
+            font-weight: 700;
+            color: var(--teal-deep);
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .hero-title span {
+            color: var(--coral);
+            position: relative;
+        }
+
+        .hero-title span::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: var(--coral-glow);
+            border-radius: 4px;
+            z-index: -1;
+        }
+
+        .hero-description {
+            font-size: 20px;
+            color: var(--gray-600);
+            margin-bottom: 40px;
+            max-width: 520px;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 32px;
+            font-family: var(--font-body);
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--coral) 0%, var(--coral-light) 100%);
+            color: white;
+            box-shadow: 0 8px 32px rgba(224, 122, 95, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(224, 122, 95, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--teal-deep);
+            border: 2px solid var(--gray-200);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--teal);
+            background: var(--teal);
+            color: white;
+        }
+
+        .hero-visual {
+            position: relative;
+            animation: fadeInRight 1s ease-out 0.3s both;
+        }
+
+        .hero-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 48px;
+            box-shadow: 0 24px 80px rgba(0, 139, 139, 0.12);
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--coral) 0%, var(--coral-light) 100%);
+            border-radius: 24px 24px 0 0;
+        }
+
+        .hero-stat-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        .hero-stat {
+            text-align: center;
+            padding: 24px;
+            background: var(--gray-100);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .hero-stat:hover {
+            background: var(--coral-glow);
+            transform: translateY(-4px);
+        }
+
+        .hero-stat-number {
+            font-family: var(--font-display);
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--teal-deep);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .hero-stat-label {
+            font-size: 14px;
+            color: var(--gray-600);
+            line-height: 1.4;
+        }
+
+        .hero-floating {
+            position: absolute;
+            background: var(--white);
+            padding: 16px 24px;
+            border-radius: 16px;
+            box-shadow: 0 12px 40px rgba(0, 139, 139, 0.15);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            animation: float 6s ease-in-out infinite;
+            z-index: 10;
+        }
+
+        .hero-floating-1 {
+            top: -30px;
+            right: -30px;
+            animation-delay: 0s;
+        }
+
+        .hero-floating-2 {
+            bottom: -30px;
+            left: -30px;
+            animation-delay: 2s;
+        }
+
+        .hero-floating-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-floating-icon.coral {
+            background: var(--coral-glow);
+            color: var(--coral);
+        }
+
+        .hero-floating-icon.teal {
+            background: rgba(0, 139, 139, 0.1);
+            color: var(--teal);
+        }
+
+        .hero-floating-text {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--teal-deep);
+        }
+
+        .hero-floating-text span {
+            display: block;
+            font-size: 11px;
+            font-weight: 400;
+            color: var(--gray-600);
+        }
+
+        /* Value Props Section */
+        .value-props {
+            background: var(--teal-deep);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-props::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .value-props-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .value-props .section-label {
+            color: var(--coral-light);
+        }
+
+        .value-props .section-title {
+            color: var(--white);
+        }
+
+        .value-props .section-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .value-props-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            margin-top: 60px;
+        }
+
+        .value-prop-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px 32px;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .value-prop-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-8px);
+            border-color: var(--coral);
+        }
+
+        .value-prop-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 24px;
+            background: var(--coral-glow);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .value-prop-icon svg {
+            width: 32px;
+            height: 32px;
+            color: var(--coral);
+        }
+
+        .value-prop-title {
+            font-family: var(--font-display);
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+
+        .value-prop-description {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+
+        /* Partner Categories Section */
+        .categories {
+            background: var(--cream);
+        }
+
+        .categories-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .category-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 48px;
+            box-shadow: 0 16px 60px rgba(0, 139, 139, 0.08);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--teal) 0%, var(--teal-light) 100%);
+        }
+
+        .category-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 80px rgba(0, 139, 139, 0.15);
+        }
+
+        .category-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 28px;
+        }
+
+        .category-icon.individual {
+            background: linear-gradient(135deg, var(--coral) 0%, var(--coral-light) 100%);
+        }
+
+        .category-icon.group {
+            background: linear-gradient(135deg, var(--teal) 0%, var(--teal-light) 100%);
+        }
+
+        .category-icon svg {
+            width: 36px;
+            height: 36px;
+            color: white;
+        }
+
+        .category-title {
+            font-family: var(--font-display);
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--teal-deep);
+            margin-bottom: 16px;
+        }
+
+        .category-description {
+            font-size: 16px;
+            color: var(--gray-600);
+            margin-bottom: 28px;
+            line-height: 1.7;
+        }
+
+        .category-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .category-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: var(--gray-800);
+        }
+
+        .category-list li::before {
+            content: '✓';
+            width: 20px;
+            height: 20px;
+            background: var(--success);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* Revenue Streams Section */
+        .revenue {
+            background: var(--white);
+        }
+
+        .revenue-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .revenue-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .revenue-card {
+            background: var(--gray-100);
+            border-radius: 20px;
+            padding: 40px 32px;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .revenue-card:hover {
+            background: var(--white);
+            box-shadow: 0 20px 60px rgba(0, 139, 139, 0.12);
+            transform: translateY(-8px);
+        }
+
+        .revenue-badge {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: var(--coral-glow);
+            color: var(--coral);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .revenue-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            background: var(--teal);
+        }
+
+        .revenue-icon svg {
+            width: 28px;
+            height: 28px;
+            color: white;
+        }
+
+        .revenue-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--teal-deep);
+            margin-bottom: 12px;
+        }
+
+        .revenue-description {
+            font-size: 15px;
+            color: var(--gray-600);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .revenue-share {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: var(--white);
+            border-radius: 12px;
+            border: 1px solid var(--gray-200);
+        }
+
+        .revenue-share-percent {
+            font-family: var(--font-display);
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--coral);
+        }
+
+        .revenue-share-label {
+            font-size: 13px;
+            color: var(--gray-600);
+            line-height: 1.4;
+        }
+
+        /* Earnings Section */
+        .earnings {
+            background: linear-gradient(135deg, var(--cream) 0%, var(--white) 50%, var(--cream-dark) 100%);
+        }
+
+        .earnings-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .earnings-content .section-subtitle {
+            margin-bottom: 40px;
+        }
+
+        .earnings-list {
+            list-style: none;
+        }
+
+        .earnings-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .earnings-item:last-child {
+            border-bottom: none;
+        }
+
+        .earnings-item-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--coral-glow);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .earnings-item-icon svg {
+            width: 24px;
+            height: 24px;
+            color: var(--coral);
+        }
+
+        .earnings-item-content h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--teal-deep);
+            margin-bottom: 4px;
+        }
+
+        .earnings-item-content p {
+            font-size: 14px;
+            color: var(--gray-600);
+            margin: 0;
+        }
+
+        .earnings-visual {
+            position: relative;
+        }
+
+        .earnings-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 48px;
+            box-shadow: 0 24px 80px rgba(0, 139, 139, 0.12);
+            text-align: center;
+        }
+
+        .earnings-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--teal) 0%, var(--coral) 100%);
+            border-radius: 24px 24px 0 0;
+        }
+
+        .earnings-highlight {
+            margin-bottom: 32px;
+        }
+
+        .earnings-highlight-label {
+            font-size: 14px;
+            color: var(--gray-600);
+            margin-bottom: 8px;
+        }
+
+        .earnings-highlight-amount {
+            font-family: var(--font-display);
+            font-size: 64px;
+            font-weight: 700;
+            color: var(--teal-deep);
+            line-height: 1;
+        }
+
+        .earnings-highlight-amount span {
+            font-size: 24px;
+            color: var(--gray-400);
+        }
+
+        .earnings-highlight-note {
+            font-size: 14px;
+            color: var(--coral);
+            font-weight: 600;
+            margin-top: 8px;
+        }
+
+        .earnings-breakdown {
+            text-align: left;
+            background: var(--gray-100);
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .earnings-breakdown-title {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--teal-deep);
+            margin-bottom: 16px;
+        }
+
+        .earnings-breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .earnings-breakdown-item:last-child {
+            border-bottom: none;
+            padding-top: 16px;
+            margin-top: 8px;
+            border-top: 2px solid var(--teal);
+        }
+
+        .earnings-breakdown-item span:first-child {
+            font-size: 14px;
+            color: var(--gray-600);
+        }
+
+        .earnings-breakdown-item span:last-child {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--teal-deep);
+        }
+
+        .earnings-breakdown-item:last-child span:last-child {
+            color: var(--coral);
+            font-size: 18px;
+        }
+
+        /* Platform Section */
+        .platform {
+            background: var(--white);
+        }
+
+        .platform-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .platform-card {
+            background: var(--gray-100);
+            border-radius: 20px;
+            padding: 32px;
+            transition: all 0.4s ease;
+        }
+
+        .platform-card:hover {
+            background: var(--white);
+            box-shadow: 0 16px 50px rgba(0, 139, 139, 0.1);
+            transform: translateY(-6px);
+        }
+
+        .platform-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--teal) 0%, var(--teal-light) 100%);
+        }
+
+        .platform-icon svg {
+            width: 26px;
+            height: 26px;
+            color: white;
+        }
+
+        .platform-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--teal-deep);
+            margin-bottom: 10px;
+        }
+
+        .platform-description {
+            font-size: 14px;
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        /* Process Section */
+        .process {
+            background: var(--teal-deep);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .process::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at 70% 50%, var(--coral-glow) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .process-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .process .section-label {
+            color: var(--coral-light);
+        }
+
+        .process .section-title {
+            color: var(--white);
+        }
+
+        .process .section-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0 auto;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            position: relative;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 48px;
+            left: 12%;
+            right: 12%;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .process-step-number {
+            width: 96px;
+            height: 96px;
+            margin: 0 auto 24px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid var(--coral);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--coral);
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-step-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+
+        .process-step-description {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+
+        .process-step-time {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 6px 14px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--coral-light);
+        }
+
+        /* Requirements Section */
+        .requirements {
+            background: var(--cream);
+        }
+
+        .requirements-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .requirements-card {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 24px;
+            padding: 48px;
+            box-shadow: 0 24px 80px rgba(0, 139, 139, 0.1);
+        }
+
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .requirement-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .requirement-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--teal);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .requirement-icon svg {
+            width: 24px;
+            height: 24px;
+            color: white;
+        }
+
+        .requirement-content h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--teal-deep);
+            margin-bottom: 4px;
+        }
+
+        .requirement-content p {
+            font-size: 14px;
+            color: var(--gray-600);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--teal-deep) 0%, var(--teal) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at 30% 50%, var(--coral-glow) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta .section-label {
+            color: var(--coral-light);
+        }
+
+        .cta .section-title {
+            color: var(--white);
+        }
+
+        .cta .section-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0 auto 40px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cta-contact {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 48px;
+            flex-wrap: wrap;
+        }
+
+        .cta-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .cta-contact-item:hover {
+            color: var(--coral-light);
+        }
+
+        .cta-contact-item svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--teal-deep);
+            padding: 80px 0 32px;
+        }
+
+        .footer-main {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+            padding-bottom: 48px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-brand-col {
+            max-width: 320px;
+        }
+
+        .footer-logo-img {
+            height: 48px;
+            width: auto;
+            margin-bottom: 20px;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-description {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .footer-email {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--coral-light);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--coral);
+            transform: translateY(-3px);
+        }
+
+        .footer-social svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .footer-app-badge img {
+            height: 40px;
+            width: auto;
+        }
+
+        .footer-col h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 24px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul a {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col ul a:hover {
+            color: var(--coral-light);
+        }
+
+        .footer-crisis {
+            margin-top: 32px;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+        }
+
+        .footer-crisis h5 {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--coral-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .footer-crisis p {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .footer-newsletter {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            padding: 40px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-newsletter-text h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 4px;
+        }
+
+        .footer-newsletter-text p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            margin: 0;
+        }
+
+        .footer-newsletter-form {
+            display: flex;
+            gap: 12px;
+        }
+
+        .footer-newsletter-form input {
+            padding: 14px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: white;
+            font-size: 14px;
+            width: 280px;
+            font-family: var(--font-body);
+        }
+
+        .footer-newsletter-form input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .footer-newsletter-form input:focus {
+            outline: none;
+            border-color: var(--coral);
+        }
+
+        .footer-newsletter-form button {
+            padding: 14px 28px;
+            background: var(--coral);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: var(--font-body);
+        }
+
+        .footer-newsletter-form button:hover {
+            background: var(--coral-light);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 32px;
+        }
+
+        .footer-copyright {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .footer-links a {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--coral-light);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .hero-visual {
+                order: -1;
+            }
+
+            .hero-floating {
+                display: none;
+            }
+
+            .value-props-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .revenue-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .earnings-grid {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .platform-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-steps::before {
+                display: none;
+            }
+
+            .footer-main {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 80px 0;
+            }
+
+            .nav-center {
+                display: none;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .value-props-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .revenue-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .platform-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .requirements-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .category-list {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-main {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-newsletter {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-newsletter-form {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .footer-newsletter-form input {
+                width: 100%;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .cta-contact {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="container">
+            <div class="nav-inner">
+                <a href="https://mysafespaces.org" class="nav-logo">
+                    <img src="https://static.wixstatic.com/media/56ddd9_33b6f28e550c4d47b5769babe26a08d2~mv2.png" alt="My Safe Spaces" class="nav-logo-img">
+                    <span class="nav-logo-text">Partner Network</span>
+                </a>
+
+                <ul class="nav-center">
+                    <li><a href="#benefits">Benefits</a></li>
+                    <li><a href="#categories">Who Can Join</a></li>
+                    <li><a href="#earnings">Earnings</a></li>
+                    <li><a href="#process">How It Works</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+
+                <div class="nav-right">
+                    <a href="#contact" class="nav-cta">Apply Now</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">Now Accepting Applications</div>
+                    <h1 class="hero-title">
+                        Grow Your Practice with<br>
+                        <span>My Safe Spaces</span>
+                    </h1>
+                    <p class="hero-description">
+                        Join India's leading mental health platform. Access a steady stream of clients, cutting-edge technology, and professional development—while maintaining your independence.
+                    </p>
+                    <div class="hero-ctas">
+                        <a href="#contact" class="btn btn-primary">
+                            Become a Partner
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                        <a href="#benefits" class="btn btn-secondary">
+                            Explore Benefits
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="hero-card">
+                        <div class="hero-stat-grid">
+                            <div class="hero-stat">
+                                <div class="hero-stat-number">500+</div>
+                                <div class="hero-stat-label">Partners by<br>Year 3</div>
+                            </div>
+                            <div class="hero-stat">
+                                <div class="hero-stat-number">₹18L+</div>
+                                <div class="hero-stat-label">Annual Earning<br>Potential</div>
+                            </div>
+                            <div class="hero-stat">
+                                <div class="hero-stat-number">70-80%</div>
+                                <div class="hero-stat-label">Revenue<br>Share</div>
+                            </div>
+                            <div class="hero-stat">
+                                <div class="hero-stat-number">Pan-India</div>
+                                <div class="hero-stat-label">Geographic<br>Reach</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hero-floating hero-floating-1">
+                        <div class="hero-floating-icon coral">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <div class="hero-floating-text">
+                            Clients Waiting
+                            <span>Steady referrals</span>
+                        </div>
+                    </div>
+
+                    <div class="hero-floating hero-floating-2">
+                        <div class="hero-floating-icon teal">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6"/>
+                                <line x1="8" y1="2" x2="8" y2="6"/>
+                                <line x1="3" y1="10" x2="21" y2="10"/>
+                            </svg>
+                        </div>
+                        <div class="hero-floating-text">
+                            Zero Admin
+                            <span>We handle it all</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Props Section -->
+    <section class="value-props section" id="benefits">
+        <div class="container">
+            <div class="value-props-content">
+                <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+                    <span class="section-label">Why Partner With Us</span>
+                    <h2 class="section-title">Everything You Need to Thrive</h2>
+                    <p class="section-subtitle" style="margin: 0 auto;">Focus on what you do best—helping clients. We take care of the rest.</p>
+                </div>
+
+                <div class="value-props-grid">
+                    <div class="value-prop-card">
+                        <div class="value-prop-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <h3 class="value-prop-title">Client Pipeline</h3>
+                        <p class="value-prop-description">Access our established client base through our central toll-free reservation system and curated therapist directory.</p>
+                    </div>
+
+                    <div class="value-prop-card">
+                        <div class="value-prop-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                <line x1="8" y1="21" x2="16" y2="21"/>
+                                <line x1="12" y1="17" x2="12" y2="21"/>
+                            </svg>
+                        </div>
+                        <h3 class="value-prop-title">Tech Platform</h3>
+                        <p class="value-prop-description">HIPAA-compliant video, scheduling, EHR, and billing systems—eliminating your administrative burden completely.</p>
+                    </div>
+
+                    <div class="value-prop-card">
+                        <div class="value-prop-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="8" r="7"/>
+                                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+                            </svg>
+                        </div>
+                        <h3 class="value-prop-title">Brand Power</h3>
+                        <p class="value-prop-description">Leverage our established reputation for quality mental health services and marketing expertise across India.</p>
+                    </div>
+
+                    <div class="value-prop-card">
+                        <div class="value-prop-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                            </svg>
+                        </div>
+                        <h3 class="value-prop-title">Growth & Training</h3>
+                        <p class="value-prop-description">Access ELEVATE professional development, THRIVE Academy teaching opportunities, and ongoing skill enhancement.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partner Categories Section -->
+    <section class="categories section" id="categories">
+        <div class="container">
+            <div class="categories-header">
+                <span class="section-label">Who Can Join</span>
+                <h2 class="section-title">Partner Categories</h2>
+                <p class="section-subtitle" style="margin: 0 auto;">Whether you're an independent practitioner or run a group practice, there's a place for you in our network.</p>
+            </div>
+
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon individual">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                    </div>
+                    <h3 class="category-title">Individual Practitioners</h3>
+                    <p class="category-description">Licensed mental health professionals operating independently who want to expand their reach while maintaining full autonomy.</p>
+                    <ul class="category-list">
+                        <li>Clinical Psychologists</li>
+                        <li>Counseling Psychologists</li>
+                        <li>Licensed Professional Counselors</li>
+                        <li>Marriage & Family Therapists</li>
+                        <li>Licensed Clinical Social Workers</li>
+                        <li>Certified Wellness Coaches</li>
+                        <li>Yoga Instructors</li>
+                        <li>Nutritionists</li>
+                    </ul>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-icon group">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h3 class="category-title">Group Practices</h3>
+                    <p class="category-description">Small to medium-sized practices (2-20 practitioners) looking to grow their business through our platform and programs.</p>
+                    <ul class="category-list">
+                        <li>Multi-disciplinary Centers</li>
+                        <li>Therapy Clinics</li>
+                        <li>Wellness Centers</li>
+                        <li>Mental Health Practice Groups</li>
+                        <li>Hospital Outpatient Services</li>
+                        <li>Holistic Wellness Practices</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Revenue Streams Section -->
+    <section class="revenue section">
+        <div class="container">
+            <div class="revenue-header">
+                <span class="section-label">Multiple Revenue Streams</span>
+                <h2 class="section-title">Diversify Your Income</h2>
+                <p class="section-subtitle" style="margin: 0 auto;">Beyond counseling, unlock additional earning opportunities through our programs and referrals.</p>
+            </div>
+
+            <div class="revenue-grid">
+                <div class="revenue-card">
+                    <span class="revenue-badge">Primary</span>
+                    <div class="revenue-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="revenue-title">Virtual Counseling</h3>
+                    <p class="revenue-description">Deliver sessions through our secure, HIPAA-compliant video platform from anywhere.</p>
+                    <div class="revenue-share">
+                        <span class="revenue-share-percent">70%</span>
+                        <span class="revenue-share-label">Your share of<br>billed amount</span>
+                    </div>
+                </div>
+
+                <div class="revenue-card">
+                    <span class="revenue-badge">Primary</span>
+                    <div class="revenue-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9 22 9 12 15 12 15 22"/>
+                        </svg>
+                    </div>
+                    <h3 class="revenue-title">In-Person Sessions</h3>
+                    <p class="revenue-description">See clients at your own location with higher revenue share for your infrastructure investment.</p>
+                    <div class="revenue-share">
+                        <span class="revenue-share-percent">80%</span>
+                        <span class="revenue-share-label">Your share of<br>billed amount</span>
+                    </div>
+                </div>
+
+                <div class="revenue-card">
+                    <span class="revenue-badge">Bonus</span>
+                    <div class="revenue-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="revenue-title">Institutional Referrals</h3>
+                    <p class="revenue-description">Earn commissions by referring schools and workplaces to our SWISS and CREW programs.</p>
+                    <div class="revenue-share">
+                        <span class="revenue-share-percent">10%</span>
+                        <span class="revenue-share-label">Initial enrollment<br>+ 5% renewals</span>
+                    </div>
+                </div>
+
+                <div class="revenue-card">
+                    <div class="revenue-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                        </svg>
+                    </div>
+                    <h3 class="revenue-title">Workshops</h3>
+                    <p class="revenue-description">Conduct mental health awareness sessions at schools, colleges, and workplaces.</p>
+                    <div class="revenue-share">
+                        <span class="revenue-share-percent">₹4,000</span>
+                        <span class="revenue-share-label">Fixed rate<br>per session</span>
+                    </div>
+                </div>
+
+                <div class="revenue-card">
+                    <div class="revenue-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="revenue-title">ELEVATE Training</h3>
+                    <p class="revenue-description">Become an instructor in our professional development program for educators and counselors.</p>
+                    <div class="revenue-share">
+                        <span class="revenue-share-percent">₹4,000</span>
+                        <span class="revenue-share-label">Fixed rate<br>per session</span>
+                    </div>
+                </div>
+
+                <div class="revenue-card">
+                    <div class="revenue-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polygon points="10 8 16 12 10 16 10 8"/>
+                        </svg>
+                    </div>
+                    <h3 class="revenue-title">THRIVE Academy</h3>
+                    <p class="revenue-description">Develop and deliver wellness courses through our online learning management system.</p>
+                    <div class="revenue-share">
+                        <span class="revenue-share-percent">₹4,000</span>
+                        <span class="revenue-share-label">Fixed rate<br>per session</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Earnings Section -->
+    <section class="earnings section" id="earnings">
+        <div class="container">
+            <div class="earnings-grid">
+                <div class="earnings-content">
+                    <span class="section-label">Partner Economics</span>
+                    <h2 class="section-title">Your Earning Potential</h2>
+                    <p class="section-subtitle">As a full-time partner, you can build a sustainable, diversified income through multiple channels on our platform.</p>
+
+                    <ul class="earnings-list">
+                        <li class="earnings-item">
+                            <div class="earnings-item-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                            </div>
+                            <div class="earnings-item-content">
+                                <h4>No Upfront Fees</h4>
+                                <p>Unlike traditional franchises, there's no investment required to join our network.</p>
+                            </div>
+                        </li>
+                        <li class="earnings-item">
+                            <div class="earnings-item-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                            </div>
+                            <div class="earnings-item-content">
+                                <h4>Fair Revenue Sharing</h4>
+                                <p>Earn 70-80% of session fees based on value—not fixed royalties regardless of support.</p>
+                            </div>
+                        </li>
+                        <li class="earnings-item">
+                            <div class="earnings-item-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                            </div>
+                            <div class="earnings-item-content">
+                                <h4>Bi-Weekly Payouts</h4>
+                                <p>Reliable payment processing on the 1st and 15th of each month via NEFT/RTGS.</p>
+                            </div>
+                        </li>
+                        <li class="earnings-item">
+                            <div class="earnings-item-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                            </div>
+                            <div class="earnings-item-content">
+                                <h4>Professional Autonomy</h4>
+                                <p>Maintain your independent practice while accessing our platform and client base.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="earnings-visual">
+                    <div class="earnings-card">
+                        <div class="earnings-highlight">
+                            <div class="earnings-highlight-label">Full-Time Partner Annual Potential</div>
+                            <div class="earnings-highlight-amount">₹18-20L<span>/year</span></div>
+                            <div class="earnings-highlight-note">Based on illustrative activity levels</div>
+                        </div>
+
+                        <div class="earnings-breakdown">
+                            <div class="earnings-breakdown-title">Annual Breakdown</div>
+                            <div class="earnings-breakdown-item">
+                                <span>Virtual Sessions (20/week)</span>
+                                <span>₹10.92L</span>
+                            </div>
+                            <div class="earnings-breakdown-item">
+                                <span>In-Person Sessions (5/week)</span>
+                                <span>₹4.16L</span>
+                            </div>
+                            <div class="earnings-breakdown-item">
+                                <span>Institutional Referrals (5/year)</span>
+                                <span>₹1.00L</span>
+                            </div>
+                            <div class="earnings-breakdown-item">
+                                <span>Workshops (2/month)</span>
+                                <span>₹0.96L</span>
+                            </div>
+                            <div class="earnings-breakdown-item">
+                                <span>ELEVATE/THRIVE (4/month)</span>
+                                <span>₹1.92L</span>
+                            </div>
+                            <div class="earnings-breakdown-item">
+                                <span>Total Potential</span>
+                                <span>₹18.96L</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Section -->
+    <section class="platform section">
+        <div class="container">
+            <div class="platform-header">
+                <span class="section-label">Technology & Support</span>
+                <h2 class="section-title">World-Class Platform</h2>
+                <p class="section-subtitle" style="margin: 0 auto;">Focus on your clients while we handle the technology, scheduling, billing, and marketing.</p>
+            </div>
+
+            <div class="platform-grid">
+                <div class="platform-card">
+                    <div class="platform-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="23 7 16 12 23 17 23 7"/>
+                            <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="platform-title">Telehealth Platform</h3>
+                    <p class="platform-description">HIPAA-compliant video conferencing with screen sharing, session recording, and waiting room features.</p>
+                </div>
+
+                <div class="platform-card">
+                    <div class="platform-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="16" y1="2" x2="16" y2="6"/>
+                            <line x1="8" y1="2" x2="8" y2="6"/>
+                            <line x1="3" y1="10" x2="21" y2="10"/>
+                        </svg>
+                    </div>
+                    <h3 class="platform-title">Smart Scheduling</h3>
+                    <p class="platform-description">Online booking, calendar sync, automated reminders, rescheduling, and no-show tracking.</p>
+                </div>
+
+                <div class="platform-card">
+                    <div class="platform-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10 9 9 9 8 9"/>
+                        </svg>
+                    </div>
+                    <h3 class="platform-title">EHR System</h3>
+                    <p class="platform-description">Client records, session notes, treatment plans, progress tracking, and secure document storage.</p>
+                </div>
+
+                <div class="platform-card">
+                    <div class="platform-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                            <line x1="1" y1="10" x2="23" y2="10"/>
+                        </svg>
+                    </div>
+                    <h3 class="platform-title">Payment Gateway</h3>
+                    <p class="platform-description">Multiple payment methods, automated invoicing, refund processing, and GST compliance built-in.</p>
+                </div>
+
+                <div class="platform-card">
+                    <div class="platform-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="platform-title">LMS Platform</h3>
+                    <p class="platform-description">Course hosting, video streaming, assessments, certificates, and progress analytics for THRIVE Academy.</p>
+                </div>
+
+                <div class="platform-card">
+                    <div class="platform-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                        </svg>
+                    </div>
+                    <h3 class="platform-title">Partner Portal</h3>
+                    <p class="platform-description">Dashboard with earnings reports, client analytics, resource library, and support ticket system.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process section" id="process">
+        <div class="container">
+            <div class="process-content">
+                <div class="process-header">
+                    <span class="section-label">Getting Started</span>
+                    <h2 class="section-title">Simple Onboarding Process</h2>
+                    <p class="section-subtitle">From application to your first client in just 9-13 days.</p>
+                </div>
+
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="process-step-number">1</div>
+                        <h3 class="process-step-title">Apply</h3>
+                        <p class="process-step-description">Complete our online form, submit credentials, and have a brief screening call.</p>
+                        <span class="process-step-time">1-2 Days</span>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="process-step-number">2</div>
+                        <h3 class="process-step-title">Verification</h3>
+                        <p class="process-step-description">We verify your license, conduct background checks, and validate your insurance.</p>
+                        <span class="process-step-time">5-7 Days</span>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="process-step-number">3</div>
+                        <h3 class="process-step-title">Training</h3>
+                        <p class="process-step-description">Complete platform training, learn MSS protocols, quality standards, and brand guidelines.</p>
+                        <span class="process-step-time">2-3 Days</span>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="process-step-number">4</div>
+                        <h3 class="process-step-title">Go Live</h3>
+                        <p class="process-step-description">Profile activation, first client assignment, and 30-day mentored period begins.</p>
+                        <span class="process-step-time">1 Day</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Requirements Section -->
+    <section class="requirements section">
+        <div class="container">
+            <div class="requirements-header">
+                <span class="section-label">Eligibility</span>
+                <h2 class="section-title">Partner Requirements</h2>
+                <p class="section-subtitle" style="margin: 0 auto;">We maintain high standards to ensure quality service for all clients.</p>
+            </div>
+
+            <div class="requirements-card">
+                <div class="requirements-grid">
+                    <div class="requirement-item">
+                        <div class="requirement-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                        </div>
+                        <div class="requirement-content">
+                            <h4>Valid Licensure</h4>
+                            <p>Professional license from RCI, State Medical Council, or recognized body (where applicable)</p>
+                        </div>
+                    </div>
+
+                    <div class="requirement-item">
+                        <div class="requirement-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                        </div>
+                        <div class="requirement-content">
+                            <h4>2+ Years Experience</h4>
+                            <p>Minimum 2 years post-licensure clinical experience (or supervised model)</p>
+                        </div>
+                    </div>
+
+                    <div class="requirement-item">
+                        <div class="requirement-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                        </div>
+                        <div class="requirement-content">
+                            <h4>Professional Insurance</h4>
+                            <p>Liability insurance with minimum ₹50 lakhs coverage</p>
+                        </div>
+                    </div>
+
+                    <div class="requirement-item">
+                        <div class="requirement-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="8.5" cy="7" r="4"/>
+                                <line x1="20" y1="8" x2="20" y2="14"/>
+                                <line x1="23" y1="11" x2="17" y2="11"/>
+                            </svg>
+                        </div>
+                        <div class="requirement-content">
+                            <h4>Clean Record</h4>
+                            <p>Clear disciplinary record and successful background verification</p>
+                        </div>
+                    </div>
+
+                    <div class="requirement-item">
+                        <div class="requirement-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                <line x1="8" y1="21" x2="16" y2="21"/>
+                                <line x1="12" y1="17" x2="12" y2="21"/>
+                            </svg>
+                        </div>
+                        <div class="requirement-content">
+                            <h4>Technology Ready</h4>
+                            <p>Reliable internet connection and appropriate hardware for virtual sessions</p>
+                        </div>
+                    </div>
+
+                    <div class="requirement-item">
+                        <div class="requirement-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6"/>
+                                <line x1="8" y1="2" x2="8" y2="6"/>
+                                <line x1="3" y1="10" x2="21" y2="10"/>
+                            </svg>
+                        </div>
+                        <div class="requirement-content">
+                            <h4>10+ Hours/Week</h4>
+                            <p>Minimum availability commitment and alignment with MSS values</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta section" id="contact">
+        <div class="container">
+            <div class="cta-content">
+                <span class="section-label">Get Started Today</span>
+                <h2 class="section-title">Ready to Grow Your Practice?</h2>
+                <p class="section-subtitle">Join our network of passionate mental health professionals making a difference across India. Apply now and start seeing clients within two weeks.</p>
+                
+                <div class="cta-buttons">
+                    <a href="mailto:partners@mysafespaces.org?subject=Partner%20Network%20Application&body=I'm%20interested%20in%20joining%20the%20My%20Safe%20Spaces%20Partner%20Network.%0A%0AName:%0ACredentials:%0AYears%20of%20Experience:%0ALocation:%0ASpecializations:%0A%0APlease%20send%20me%20more%20information%20about%20the%20application%20process." class="btn btn-primary">
+                        Apply to Partner Network
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <a href="mailto:partners@mysafespaces.org?subject=Partner%20Network%20Inquiry" class="btn btn-secondary" style="background: transparent; border-color: rgba(255,255,255,0.3); color: white;">
+                        Request More Info
+                    </a>
+                </div>
+
+                <div class="cta-contact">
+                    <a href="mailto:partners@mysafespaces.org" class="cta-contact-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                        partners@mysafespaces.org
+                    </a>
+                    <a href="tel:+918062689525" class="cta-contact-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                        +91 80626 89525
+                    </a>
+                    <a href="https://mysafespaces.org" class="cta-contact-item" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="2" y1="12" x2="22" y2="12"/>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                        </svg>
+                        mysafespaces.org
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand-col">
+                    <a href="https://mysafespaces.org" target="_blank">
+                        <img src="https://static.wixstatic.com/media/56ddd9_33b6f28e550c4d47b5769babe26a08d2~mv2.png" alt="My Safe Spaces" class="footer-logo-img">
+                    </a>
+                    <p class="footer-description">Supporting mental wellness through compassionate care, innovative AI tools, and certified professionals who truly understand you.</p>
+                    <a href="mailto:info@mysafespaces.org" class="footer-email">info@mysafespaces.org</a>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/mysafe_spaces" target="_blank" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.facebook.com/mysafe_spaces" target="_blank" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                            </svg>
+                        </a>
+                        <a href="http://www.youtube.com/@MySafeSpaces" target="_blank" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
+                                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/company/mysafespaces/" target="_blank" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                                <rect x="2" y="9" width="4" height="12"/>
+                                <circle cx="4" cy="4" r="2"/>
+                            </svg>
+                        </a>
+                        <a href="https://x.com/mysafe_spaces" target="_blank" aria-label="Twitter/X">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <a href="https://play.google.com/store/apps/details?id=com.mysafespaces" target="_blank" class="footer-app-badge">
+                        <img src="https://static.wixstatic.com/media/56ddd9_3d10278451d84745937b171d5287b28d~mv2.png/v1/fill/w_135,h_40,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/GetItOnGooglePlay_Badge_Web_color_English.png" alt="Get it on Google Play">
+                    </a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>My Safe Spaces</h4>
+                    <ul>
+                        <li><a href="https://mysafespaces.org/aboutus" target="_blank">About Us</a></li>
+                        <li><a href="https://mysafespaces.org/careers" target="_blank">Careers</a></li>
+                        <li><a href="https://mysafespaces.org/blog" target="_blank">Blog</a></li>
+                        <li><a href="https://mysafespaces.org/event-list" target="_blank">Events</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>For Organizations</h4>
+                    <ul>
+                        <li><a href="https://mysafespaces.org/education" target="_blank">Schools & Colleges</a></li>
+                        <li><a href="https://swiss.mysafespaces.org" target="_blank">SWISS Certification</a></li>
+                        <li><a href="https://mysafespaces.org/corporate" target="_blank">Workplace Wellness</a></li>
+                        <li><a href="https://mysafespaces.org/sessions" target="_blank">Professional Training</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Learn & Grow</h4>
+                    <ul>
+                        <li><a href="https://thrive.mysafespaces.org" target="_blank">Thrive Academy</a></li>
+                        <li><a href="https://mysafespaces.org/webinars-recordings" target="_blank">Webinars</a></li>
+                        <li><a href="https://mysafespaces.org/digitalmaze" target="_blank">On Social Media</a></li>
+                        <li><a href="https://mysafespaces.org/blog" target="_blank">Blog</a></li>
+                    </ul>
+
+                    <div class="footer-crisis">
+                        <h5>Crisis Support (India)</h5>
+                        <p>112 for unified emergency<br>
+                        TeleMANAS: 14416 | 1-800-891-4416</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-newsletter">
+                <div class="footer-newsletter-text">
+                    <h4>Subscribe to our newsletter</h4>
+                    <p>Stay updated on partner opportunities and mental health resources</p>
+                </div>
+                <form class="footer-newsletter-form" action="https://mysafespaces.org" method="get">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    © 2026 MySafeSpaces. All rights reserved.
+                </div>
+                <div class="footer-links">
+                    <a href="https://mysafespaces.org/privacy-policy" target="_blank">Privacy Policy</a>
+                    <a href="https://mysafespaces.org/terms-and-conditions" target="_blank">Terms & Conditions</a>
+                    <a href="https://mysafespaces.org/accessibility-statement-1" target="_blank">Refund Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation scroll effect
+        const nav = document.getElementById('nav');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.value-prop-card, .category-card, .revenue-card, .platform-card, .process-step, .requirement-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
