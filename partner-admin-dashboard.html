@@ -760,6 +760,99 @@
             font-weight: 500;
         }
 
+        /* Documents Grid */
+        .documents-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .document-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: #F8FAFC;
+            border-radius: 12px;
+            border: 1px solid var(--gray-light);
+            transition: all 0.2s;
+        }
+
+        .document-card:hover {
+            border-color: var(--teal);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .document-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .document-icon.pdf { background: #FFEBEE; }
+        .document-icon.image { background: #E3F2FD; }
+        .document-icon.doc { background: #E8F5E9; }
+        .document-icon.other { background: #FFF3E0; }
+
+        .document-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .document-name {
+            font-weight: 600;
+            color: var(--charcoal);
+            font-size: 0.9rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .document-meta {
+            font-size: 0.75rem;
+            color: var(--gray-dark);
+            margin-top: 0.25rem;
+        }
+
+        .document-download {
+            padding: 0.5rem 1rem;
+            background: var(--teal);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .document-download:hover {
+            background: var(--teal-dark);
+        }
+
+        .no-documents {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 2rem;
+            color: var(--gray-dark);
+            background: #F8FAFC;
+            border-radius: 12px;
+        }
+
+        .documents-loading {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 2rem;
+            color: var(--gray-dark);
+        }
+
         .modal-footer {
             display: flex;
             justify-content: space-between;
@@ -1394,6 +1487,90 @@
         }
 
         // ============================================
+        // DOCUMENT FUNCTIONS
+        // ============================================
+        function getDocumentIcon(fileName) {
+            const ext = fileName.split('.').pop().toLowerCase();
+            if (['pdf'].includes(ext)) return { icon: '📄', class: 'pdf' };
+            if (['jpg', 'jpeg', 'png', 'gif', 'webp'].includes(ext)) return { icon: '🖼️', class: 'image' };
+            if (['doc', 'docx'].includes(ext)) return { icon: '📝', class: 'doc' };
+            return { icon: '📎', class: 'other' };
+        }
+
+        function formatFileSize(bytes) {
+            if (bytes < 1024) return bytes + ' B';
+            if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+            return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+        }
+
+        function renderDocuments(application) {
+            // Check if application has documentKeys from the form submission
+            const docKeys = application.documentKeys || {};
+            const hasStoredDocs = Object.values(docKeys).some(key => key && !key.startsWith('demo/'));
+            
+            if (!hasStoredDocs) {
+                return `
+                    <div class="no-documents">
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">📁</div>
+                        <p>No documents uploaded with this application</p>
+                        <p style="font-size: 0.8rem; margin-top: 0.5rem;">Documents will appear here when applicants upload them</p>
+                    </div>
+                `;
+            }
+
+            return `<div class="documents-loading">⏳ Loading documents...</div>`;
+        }
+
+        async function loadDocuments(applicationId) {
+            const docsGrid = document.getElementById('documents-grid');
+            if (!docsGrid) return;
+
+            try {
+                const response = await fetch(`${API_ENDPOINT}/applications/${applicationId}/documents`);
+                
+                if (!response.ok) {
+                    throw new Error('Failed to fetch documents');
+                }
+                
+                const data = await response.json();
+                
+                if (!data.documents || data.documents.length === 0) {
+                    docsGrid.innerHTML = `
+                        <div class="no-documents">
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">📁</div>
+                            <p>No documents found in storage</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                docsGrid.innerHTML = data.documents.map(doc => {
+                    const { icon, class: iconClass } = getDocumentIcon(doc.fileName);
+                    return `
+                        <div class="document-card">
+                            <div class="document-icon ${iconClass}">${icon}</div>
+                            <div class="document-info">
+                                <div class="document-name" title="${doc.fileName}">${doc.fileName}</div>
+                                <div class="document-meta">${formatFileSize(doc.size)} • ${new Date(doc.lastModified).toLocaleDateString()}</div>
+                            </div>
+                            <a href="${doc.downloadUrl}" target="_blank" class="document-download">Download</a>
+                        </div>
+                    `;
+                }).join('');
+
+            } catch (error) {
+                console.error('Error loading documents:', error);
+                docsGrid.innerHTML = `
+                    <div class="no-documents">
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">⚠️</div>
+                        <p>Could not load documents</p>
+                        <p style="font-size: 0.8rem; margin-top: 0.5rem;">${error.message}</p>
+                    </div>
+                `;
+            }
+        }
+
+        // ============================================
         // MODAL FUNCTIONS
         // ============================================
         function viewApplication(applicationId) {
@@ -1533,6 +1710,13 @@
                 </div>
 
                 <div class="detail-section">
+                    <div class="detail-section-title">📎 Uploaded Documents</div>
+                    <div class="documents-grid" id="documents-grid">
+                        ${renderDocuments(currentApplication)}
+                    </div>
+                </div>
+
+                <div class="detail-section">
                     <div class="detail-section-title">📊 Application Info</div>
                     <div class="detail-grid">
                         <div class="detail-item">
@@ -1560,6 +1744,9 @@
             `;
 
             detailModal.classList.add('active');
+            
+            // Load documents from S3
+            loadDocuments(currentApplication.applicationId);
         }
 
         function closeModal() {
