@@ -1526,7 +1526,8 @@
             if (!docsGrid) return;
 
             try {
-                const response = await fetch(`${API_ENDPOINT}/applications/${applicationId}/documents`);
+                // Use query parameter style: /applications/documents?id=xxx
+                const response = await fetch(`${API_ENDPOINT}/applications/documents?id=${applicationId}`);
                 
                 if (!response.ok) {
                     throw new Error('Failed to fetch documents');
