@@ -1197,6 +1197,24 @@
         }
 
         // ============================================
+        // HELPER FUNCTIONS - Safe data access
+        // ============================================
+        function safe(value, fallback = '') {
+            return value !== undefined && value !== null ? value : fallback;
+        }
+
+        function safeInitial(value) {
+            return (value && typeof value === 'string' && value.length > 0) ? value[0].toUpperCase() : '?';
+        }
+
+        function isValidApplication(app) {
+            return app && 
+                   app.applicationId && 
+                   app.email && 
+                   (app.firstName || app.lastName);
+        }
+
+        // ============================================
         // API CALLS
         // ============================================
         async function loadApplications() {
@@ -1204,17 +1222,36 @@
             
             try {
                 const response = await fetch(`${API_ENDPOINT}/applications/list`);
+                console.log('List response status:', response.status);
                 
-                if (!response.ok) {
-                    throw new Error('Failed to fetch applications');
+                const rawData = await response.json();
+                console.log('List raw response:', rawData);
+                
+                // Handle both direct and wrapped responses
+                let data = rawData;
+                if (rawData.body && typeof rawData.body === 'string') {
+                    // Response is wrapped (Lambda non-proxy format)
+                    data = JSON.parse(rawData.body);
                 }
                 
-                const data = await response.json();
-                applications = data.applications || [];
+                if (!response.ok && !data.success) {
+                    throw new Error(data.error || 'Failed to fetch applications');
+                }
+                
+                // Filter out invalid applications (missing required fields)
+                const allApplications = data.applications || [];
+                const validApplications = allApplications.filter(isValidApplication);
+                
+                if (validApplications.length < allApplications.length) {
+                    console.warn(`Filtered out ${allApplications.length - validApplications.length} invalid applications`);
+                }
+                
+                applications = validApplications;
+                console.log('Loaded applications:', applications.length);
                 
                 updateStats();
                 renderTable();
-                showToast('Applications loaded successfully', 'success');
+                showToast(`Loaded ${applications.length} applications`, 'success');
             } catch (error) {
                 console.error('Error loading applications:', error);
                 
@@ -1225,6 +1262,8 @@
 
         async function updateApplicationStatus(applicationId, email, newStatus) {
             try {
+                console.log('Updating status:', { applicationId, email, newStatus });
+                
                 const response = await fetch(`${API_ENDPOINT}/applications/${applicationId}/status`, {
                     method: 'PUT',
                     headers: {
@@ -1233,8 +1272,19 @@
                     body: JSON.stringify({ email, status: newStatus })
                 });
 
-                if (!response.ok) {
-                    throw new Error('Failed to update status');
+                console.log('Update response status:', response.status);
+                
+                const rawData = await response.json();
+                console.log('Update raw response:', rawData);
+                
+                // Handle both direct and wrapped responses
+                let data = rawData;
+                if (rawData.body && typeof rawData.body === 'string') {
+                    data = JSON.parse(rawData.body);
+                }
+
+                if (!response.ok && !data.success) {
+                    throw new Error(data.error || 'Failed to update status');
                 }
 
                 // Update local state
@@ -1438,15 +1488,15 @@
                             <tr>
                                 <td>
                                     <div class="applicant-info">
-                                        <div class="applicant-avatar">${app.firstName[0]}${app.lastName[0]}</div>
+                                        <div class="applicant-avatar">${safeInitial(app.firstName)}${safeInitial(app.lastName)}</div>
                                         <div>
-                                            <div class="applicant-name">${app.firstName} ${app.lastName}</div>
-                                            <div class="applicant-email">${app.email}</div>
+                                            <div class="applicant-name">${safe(app.firstName, 'Unknown')} ${safe(app.lastName, '')}</div>
+                                            <div class="applicant-email">${safe(app.email, 'No email')}</div>
                                         </div>
                                     </div>
                                 </td>
-                                <td>${app.professionalTitle}</td>
-                                <td>${app.city}, ${app.state}</td>
+                                <td>${safe(app.professionalTitle, 'Not specified')}</td>
+                                <td>${safe(app.city, 'Unknown')}, ${safe(app.state, '')}</td>
                                 <td>${formatDate(app.submittedAt)}</td>
                                 <td><span class="status-badge ${getStatusClass(app.status)}">${formatStatus(app.status)}</span></td>
                                 <td><button class="action-btn view" onclick="viewApplication('${app.applicationId}')">View</button></td>
@@ -1478,7 +1528,9 @@
         }
 
         function formatDate(dateStr) {
+            if (!dateStr) return 'Unknown';
             const date = new Date(dateStr);
+            if (isNaN(date.getTime())) return 'Invalid date';
             return date.toLocaleDateString('en-IN', { 
                 day: 'numeric',
                 month: 'short',
@@ -1582,19 +1634,19 @@
             document.getElementById('status-update').value = currentApplication.status;
 
             const specializations = Array.isArray(currentApplication.specializations) 
-                ? currentApplication.specializations 
-                : [currentApplication.specializations];
+                ? currentApplication.specializations.filter(Boolean)
+                : (currentApplication.specializations ? [currentApplication.specializations] : []);
 
             const approaches = Array.isArray(currentApplication.approaches) 
-                ? currentApplication.approaches 
+                ? currentApplication.approaches.filter(Boolean)
                 : (currentApplication.approaches ? [currentApplication.approaches] : []);
 
             const availableDays = Array.isArray(currentApplication.availableDays) 
-                ? currentApplication.availableDays 
-                : [currentApplication.availableDays];
+                ? currentApplication.availableDays.filter(Boolean)
+                : (currentApplication.availableDays ? [currentApplication.availableDays] : []);
 
             const programInterest = Array.isArray(currentApplication.programInterest) 
-                ? currentApplication.programInterest 
+                ? currentApplication.programInterest.filter(Boolean)
                 : (currentApplication.programInterest ? [currentApplication.programInterest] : []);
 
             document.getElementById('modal-body').innerHTML = `
@@ -1603,27 +1655,27 @@
                     <div class="detail-grid">
                         <div class="detail-item">
                             <div class="detail-label">Full Name</div>
-                            <div class="detail-value">${currentApplication.firstName} ${currentApplication.lastName}</div>
+                            <div class="detail-value">${safe(currentApplication.firstName, 'Unknown')} ${safe(currentApplication.lastName, '')}</div>
                         </div>
                         <div class="detail-item">
                             <div class="detail-label">Partner Type</div>
-                            <div class="detail-value">${currentApplication.partnerType}</div>
+                            <div class="detail-value">${safe(currentApplication.partnerType, 'Not specified')}</div>
                         </div>
                         <div class="detail-item">
                             <div class="detail-label">Email</div>
-                            <div class="detail-value"><a href="mailto:${currentApplication.email}">${currentApplication.email}</a></div>
+                            <div class="detail-value"><a href="mailto:${safe(currentApplication.email)}">${safe(currentApplication.email, 'Not provided')}</a></div>
                         </div>
                         <div class="detail-item">
                             <div class="detail-label">Phone</div>
-                            <div class="detail-value"><a href="tel:${currentApplication.phone}">${currentApplication.phone}</a></div>
+                            <div class="detail-value"><a href="tel:${safe(currentApplication.phone)}">${safe(currentApplication.phone, 'Not provided')}</a></div>
                         </div>
                         <div class="detail-item">
                             <div class="detail-label">City</div>
-                            <div class="detail-value">${currentApplication.city}</div>
+                            <div class="detail-value">${safe(currentApplication.city, 'Not specified')}</div>
                         </div>
                         <div class="detail-item">
                             <div class="detail-label">State</div>
-                            <div class="detail-value">${currentApplication.state}</div>
+                            <div class="detail-value">${safe(currentApplication.state, 'Not specified')}</div>
                         </div>
                     </div>
                 </div>
@@ -1633,23 +1685,23 @@
                     <div class="detail-grid">
                         <div class="detail-item">
                             <div class="detail-label">Professional Title</div>
-                            <div class="detail-value">${currentApplication.professionalTitle}</div>
+                            <div class="detail-value">${safe(currentApplication.professionalTitle, 'Not specified')}</div>
                         </div>
                         <div class="detail-item">
                             <div class="detail-label">Highest Qualification</div>
-                            <div class="detail-value">${currentApplication.highestQualification}</div>
+                            <div class="detail-value">${safe(currentApplication.highestQualification, 'Not specified')}</div>
                         </div>
                         <div class="detail-item">
                             <div class="detail-label">Years of Experience</div>
-                            <div class="detail-value">${currentApplication.yearsExperience}</div>
+                            <div class="detail-value">${safe(currentApplication.yearsExperience, 'Not specified')}</div>
                         </div>
                         <div class="detail-item">
                             <div class="detail-label">License Number</div>
-                            <div class="detail-value">${currentApplication.licenseNumber || 'Not provided'}</div>
+                            <div class="detail-value">${safe(currentApplication.licenseNumber, 'Not provided')}</div>
                         </div>
                         <div class="detail-item full-width">
                             <div class="detail-label">Professional Bio</div>
-                            <div class="detail-value">${currentApplication.professionalBio}</div>
+                            <div class="detail-value">${safe(currentApplication.professionalBio, 'Not provided')}</div>
                         </div>
                     </div>
                 </div>
@@ -1683,19 +1735,19 @@
                     <div class="detail-grid">
                         <div class="detail-item">
                             <div class="detail-label">Available Days</div>
-                            <div class="detail-value">${availableDays.join(', ')}</div>
+                            <div class="detail-value">${availableDays.length > 0 ? availableDays.join(', ') : 'Not specified'}</div>
                         </div>
                         <div class="detail-item">
                             <div class="detail-label">Weekly Hours</div>
-                            <div class="detail-value">${currentApplication.weeklyHours}</div>
+                            <div class="detail-value">${safe(currentApplication.weeklyHours, 'Not specified')}</div>
                         </div>
                         <div class="detail-item">
                             <div class="detail-label">Service Delivery</div>
-                            <div class="detail-value">${currentApplication.serviceDelivery}</div>
+                            <div class="detail-value">${safe(currentApplication.serviceDelivery, 'Not specified')}</div>
                         </div>
                         <div class="detail-item">
                             <div class="detail-label">Languages</div>
-                            <div class="detail-value">${currentApplication.languages}</div>
+                            <div class="detail-value">${safe(currentApplication.languages, 'Not specified')}</div>
                         </div>
                         ${programInterest.length > 0 ? `
                         <div class="detail-item full-width">
@@ -1784,19 +1836,19 @@
 
             const headers = ['Application ID', 'First Name', 'Last Name', 'Email', 'Phone', 'City', 'State', 'Partner Type', 'Professional Title', 'Qualification', 'Experience', 'Status', 'Submitted'];
             const rows = applications.map(app => [
-                app.applicationId,
-                app.firstName,
-                app.lastName,
-                app.email,
-                app.phone,
-                app.city,
-                app.state,
-                app.partnerType,
-                app.professionalTitle,
-                app.highestQualification,
-                app.yearsExperience,
-                app.status,
-                new Date(app.submittedAt).toISOString()
+                safe(app.applicationId, ''),
+                safe(app.firstName, ''),
+                safe(app.lastName, ''),
+                safe(app.email, ''),
+                safe(app.phone, ''),
+                safe(app.city, ''),
+                safe(app.state, ''),
+                safe(app.partnerType, ''),
+                safe(app.professionalTitle, ''),
+                safe(app.highestQualification, ''),
+                safe(app.yearsExperience, ''),
+                safe(app.status, ''),
+                app.submittedAt ? new Date(app.submittedAt).toISOString() : ''
             ]);
 
             const csv = [headers, ...rows].map(row => row.map(cell => `"${cell}"`).join(',')).join('\n');
