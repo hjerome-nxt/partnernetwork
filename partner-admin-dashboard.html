@@ -599,6 +599,417 @@
             to { transform: rotate(360deg); }
         }
 
+        /* Tab Pages */
+        .tab-page {
+            display: none;
+        }
+
+        .tab-page.active {
+            display: block;
+        }
+
+        /* Partners Page Styles */
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .partner-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .partner-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .partner-card-header {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .partner-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--teal) 0%, var(--teal-light) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .partner-info h3 {
+            font-size: 1.1rem;
+            color: var(--charcoal);
+            margin-bottom: 0.25rem;
+        }
+
+        .partner-info p {
+            font-size: 0.875rem;
+            color: var(--gray-dark);
+        }
+
+        .partner-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .partner-detail-tag {
+            font-size: 0.75rem;
+            padding: 0.375rem 0.75rem;
+            background: var(--gray-light);
+            border-radius: 20px;
+            color: var(--gray-dark);
+        }
+
+        .partner-specializations {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .partner-spec-tag {
+            font-size: 0.7rem;
+            padding: 0.25rem 0.625rem;
+            background: var(--teal-pale);
+            border-radius: 12px;
+            color: var(--teal-dark);
+        }
+
+        .partner-contact {
+            display: flex;
+            gap: 0.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--gray-light);
+        }
+
+        .partner-contact a {
+            flex: 1;
+            padding: 0.5rem;
+            text-align: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .partner-contact .email-btn {
+            background: var(--teal-pale);
+            color: var(--teal-dark);
+        }
+
+        .partner-contact .email-btn:hover {
+            background: var(--teal);
+            color: var(--white);
+        }
+
+        .partner-contact .phone-btn {
+            background: var(--gray-light);
+            color: var(--charcoal);
+        }
+
+        .partner-contact .phone-btn:hover {
+            background: var(--coral);
+            color: var(--white);
+        }
+
+        /* Analytics Page Styles */
+        .analytics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .analytics-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .analytics-card.full-width {
+            grid-column: span 2;
+        }
+
+        .analytics-card h3 {
+            font-size: 1rem;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .chart-container {
+            height: 250px;
+            position: relative;
+        }
+
+        /* Bar Chart */
+        .bar-chart {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            height: 200px;
+            padding: 1rem 0;
+            gap: 1rem;
+        }
+
+        .bar-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+        }
+
+        .bar {
+            width: 100%;
+            max-width: 60px;
+            background: linear-gradient(180deg, var(--teal) 0%, var(--teal-light) 100%);
+            border-radius: 8px 8px 0 0;
+            transition: height 0.5s ease;
+            min-height: 4px;
+        }
+
+        .bar-label {
+            margin-top: 0.5rem;
+            font-size: 0.75rem;
+            color: var(--gray-dark);
+            text-align: center;
+        }
+
+        .bar-value {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 0.25rem;
+        }
+
+        /* Donut Chart */
+        .donut-chart-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .donut-chart {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .donut-center {
+            position: absolute;
+            text-align: center;
+            background: var(--white);
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .donut-center-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--charcoal);
+        }
+
+        .donut-center-label {
+            font-size: 0.75rem;
+            color: var(--gray-dark);
+        }
+
+        .donut-legend {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .legend-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+        }
+
+        /* Stats Summary */
+        .stats-summary {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .summary-item {
+            text-align: center;
+            padding: 1rem;
+            background: var(--cream);
+            border-radius: 12px;
+        }
+
+        .summary-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--teal-dark);
+        }
+
+        .summary-label {
+            font-size: 0.75rem;
+            color: var(--gray-dark);
+            margin-top: 0.25rem;
+        }
+
+        /* Recent Activity */
+        .activity-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.75rem;
+            background: var(--cream);
+            border-radius: 10px;
+        }
+
+        .activity-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        .activity-icon.new { background: #E3F2FD; }
+        .activity-icon.approved { background: #E8F5E9; }
+        .activity-icon.review { background: #FFF3E0; }
+
+        .activity-content {
+            flex: 1;
+        }
+
+        .activity-text {
+            font-size: 0.875rem;
+            color: var(--charcoal);
+        }
+
+        .activity-time {
+            font-size: 0.75rem;
+            color: var(--gray-dark);
+        }
+
+        /* Top Specializations */
+        .spec-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .spec-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .spec-name {
+            flex: 1;
+            font-size: 0.875rem;
+            color: var(--charcoal);
+        }
+
+        .spec-bar-container {
+            flex: 2;
+            height: 8px;
+            background: var(--gray-light);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .spec-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--teal) 0%, var(--teal-light) 100%);
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        .spec-count {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--teal-dark);
+            min-width: 30px;
+            text-align: right;
+        }
+
+        /* Empty State */
+        .empty-partners {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--gray-dark);
+        }
+
+        .empty-partners-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .empty-partners h3 {
+            color: var(--charcoal);
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 1200px) {
+            .analytics-grid {
+                grid-template-columns: 1fr;
+            }
+            .analytics-card.full-width {
+                grid-column: span 1;
+            }
+            .stats-summary {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .partners-grid {
+                grid-template-columns: 1fr;
+            }
+            .donut-chart-container {
+                flex-direction: column;
+            }
+        }
+
         /* Empty State */
         .empty-state {
             text-align: center;
@@ -995,10 +1406,10 @@
                 <div class="sidebar-logo-text">My Safe<span>Spaces</span></div>
             </div>
             <ul class="sidebar-nav">
-                <li><a href="#" class="active">📋 Applications</a></li>
-                <li><a href="#">👥 Partners</a></li>
-                <li><a href="#">📊 Analytics</a></li>
-                <li><a href="#">⚙️ Settings</a></li>
+                <li><a href="#" class="active" data-tab="applications">📋 Applications</a></li>
+                <li><a href="#" data-tab="partners">👥 Partners</a></li>
+                <li><a href="#" data-tab="analytics">📊 Analytics</a></li>
+                <li><a href="#" data-tab="settings">⚙️ Settings</a></li>
             </ul>
             <div class="sidebar-footer">
                 <button class="logout-btn" id="logout-btn">
@@ -1009,87 +1420,256 @@
 
         <!-- Main Content -->
         <main class="main-content">
-            <!-- Header -->
-            <div class="page-header">
-                <div class="page-title">
-                    <h1>Partner Applications</h1>
-                    <p>Review and manage incoming partner applications</p>
+            <!-- Applications Tab -->
+            <div class="tab-page active" id="applications-tab">
+                <!-- Header -->
+                <div class="page-header">
+                    <div class="page-title">
+                        <h1>Partner Applications</h1>
+                        <p>Review and manage incoming partner applications</p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn btn-secondary" id="refresh-btn">🔄 Refresh</button>
+                        <button class="btn btn-primary" id="export-btn">📥 Export CSV</button>
+                    </div>
                 </div>
-                <div class="header-actions">
-                    <button class="btn btn-secondary" id="refresh-btn">🔄 Refresh</button>
-                    <button class="btn btn-primary" id="export-btn">📥 Export CSV</button>
+
+                <!-- Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <div>
+                                <div class="stat-value" id="stat-pending">-</div>
+                                <div class="stat-label">Pending Review</div>
+                            </div>
+                            <div class="stat-icon pending">⏳</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <div>
+                                <div class="stat-value" id="stat-review">-</div>
+                                <div class="stat-label">In Review</div>
+                            </div>
+                            <div class="stat-icon review">🔍</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <div>
+                                <div class="stat-value" id="stat-approved">-</div>
+                                <div class="stat-label">Approved</div>
+                            </div>
+                            <div class="stat-icon approved">✅</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <div>
+                                <div class="stat-value" id="stat-total">-</div>
+                                <div class="stat-label">Total Applications</div>
+                            </div>
+                            <div class="stat-icon total">📊</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filters -->
+                <div class="filters-bar">
+                    <div class="search-box">
+                        <input type="text" id="search-input" placeholder="Search by name, email, or application ID...">
+                    </div>
+                    <select class="filter-select" id="status-filter">
+                        <option value="">All Statuses</option>
+                        <option value="PENDING_REVIEW">Pending Review</option>
+                        <option value="IN_REVIEW">In Review</option>
+                        <option value="APPROVED">Approved</option>
+                        <option value="REJECTED">Rejected</option>
+                    </select>
+                    <select class="filter-select" id="sort-filter">
+                        <option value="newest">Newest First</option>
+                        <option value="oldest">Oldest First</option>
+                        <option value="name">Name (A-Z)</option>
+                    </select>
+                </div>
+
+                <!-- Table -->
+                <div class="table-container">
+                    <div class="table-header">
+                        <h3>Applications</h3>
+                        <span class="table-count" id="table-count">0 applications</span>
+                    </div>
+                    <div id="table-content">
+                        <div class="loading">
+                            <div class="loading-spinner"></div>
+                            Loading applications...
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Stats -->
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-card-header">
-                        <div>
-                            <div class="stat-value" id="stat-pending">-</div>
-                            <div class="stat-label">Pending Review</div>
-                        </div>
-                        <div class="stat-icon pending">⏳</div>
+            <!-- Partners Tab -->
+            <div class="tab-page" id="partners-tab">
+                <div class="page-header">
+                    <div class="page-title">
+                        <h1>Active Partners</h1>
+                        <p>Manage your approved partner network</p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn btn-secondary" id="refresh-partners-btn">🔄 Refresh</button>
+                        <button class="btn btn-primary" id="export-partners-btn">📥 Export Partners</button>
                     </div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-card-header">
-                        <div>
-                            <div class="stat-value" id="stat-review">-</div>
-                            <div class="stat-label">In Review</div>
-                        </div>
-                        <div class="stat-icon review">🔍</div>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-card-header">
-                        <div>
-                            <div class="stat-value" id="stat-approved">-</div>
-                            <div class="stat-label">Approved</div>
-                        </div>
-                        <div class="stat-icon approved">✅</div>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-card-header">
-                        <div>
-                            <div class="stat-value" id="stat-total">-</div>
-                            <div class="stat-label">Total Applications</div>
-                        </div>
-                        <div class="stat-icon total">📊</div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Filters -->
-            <div class="filters-bar">
-                <div class="search-box">
-                    <input type="text" id="search-input" placeholder="Search by name, email, or application ID...">
+                <!-- Partner Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <div>
+                                <div class="stat-value" id="partner-stat-total">-</div>
+                                <div class="stat-label">Total Partners</div>
+                            </div>
+                            <div class="stat-icon total">👥</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <div>
+                                <div class="stat-value" id="partner-stat-individual">-</div>
+                                <div class="stat-label">Individual Practitioners</div>
+                            </div>
+                            <div class="stat-icon review">👤</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <div>
+                                <div class="stat-value" id="partner-stat-group">-</div>
+                                <div class="stat-label">Group Practices</div>
+                            </div>
+                            <div class="stat-icon pending">🏢</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <div>
+                                <div class="stat-value" id="partner-stat-cities">-</div>
+                                <div class="stat-label">Cities Covered</div>
+                            </div>
+                            <div class="stat-icon approved">🌍</div>
+                        </div>
+                    </div>
                 </div>
-                <select class="filter-select" id="status-filter">
-                    <option value="">All Statuses</option>
-                    <option value="PENDING_REVIEW">Pending Review</option>
-                    <option value="IN_REVIEW">In Review</option>
-                    <option value="APPROVED">Approved</option>
-                    <option value="REJECTED">Rejected</option>
-                </select>
-                <select class="filter-select" id="sort-filter">
-                    <option value="newest">Newest First</option>
-                    <option value="oldest">Oldest First</option>
-                    <option value="name">Name (A-Z)</option>
-                </select>
-            </div>
 
-            <!-- Table -->
-            <div class="table-container">
-                <div class="table-header">
-                    <h3>Applications</h3>
-                    <span class="table-count" id="table-count">0 applications</span>
+                <!-- Partner Filters -->
+                <div class="filters-bar">
+                    <div class="search-box">
+                        <input type="text" id="partner-search" placeholder="Search partners by name, specialty, or location...">
+                    </div>
+                    <select class="filter-select" id="partner-type-filter">
+                        <option value="">All Types</option>
+                        <option value="Individual Practitioner">Individual Practitioner</option>
+                        <option value="Group Practice">Group Practice</option>
+                    </select>
+                    <select class="filter-select" id="partner-city-filter">
+                        <option value="">All Cities</option>
+                    </select>
                 </div>
-                <div id="table-content">
+
+                <!-- Partners Grid -->
+                <div class="partners-grid" id="partners-grid">
                     <div class="loading">
                         <div class="loading-spinner"></div>
-                        Loading applications...
+                        Loading partners...
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analytics Tab -->
+            <div class="tab-page" id="analytics-tab">
+                <div class="page-header">
+                    <div class="page-title">
+                        <h1>Analytics Dashboard</h1>
+                        <p>Insights and metrics for your partner network</p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn btn-secondary" id="refresh-analytics-btn">🔄 Refresh</button>
+                    </div>
+                </div>
+
+                <!-- Summary Stats -->
+                <div class="analytics-card full-width" style="margin-bottom: 1.5rem;">
+                    <h3>📈 Overview</h3>
+                    <div class="stats-summary" id="analytics-summary">
+                        <div class="summary-item">
+                            <div class="summary-value" id="analytics-total">-</div>
+                            <div class="summary-label">Total Applications</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-value" id="analytics-approved">-</div>
+                            <div class="summary-label">Approved Partners</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-value" id="analytics-rate">-</div>
+                            <div class="summary-label">Approval Rate</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-value" id="analytics-pending">-</div>
+                            <div class="summary-label">Pending Actions</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="analytics-grid">
+                    <!-- Application Status Distribution -->
+                    <div class="analytics-card">
+                        <h3>🎯 Application Status</h3>
+                        <div class="donut-chart-container" id="status-chart">
+                            <div class="donut-chart" id="donut-chart"></div>
+                            <div class="donut-legend" id="donut-legend"></div>
+                        </div>
+                    </div>
+
+                    <!-- Applications Over Time -->
+                    <div class="analytics-card">
+                        <h3>📅 Applications by Month</h3>
+                        <div class="bar-chart" id="monthly-chart"></div>
+                    </div>
+
+                    <!-- Top Specializations -->
+                    <div class="analytics-card">
+                        <h3>🧠 Top Specializations</h3>
+                        <div class="spec-list" id="specializations-chart"></div>
+                    </div>
+
+                    <!-- Geographic Distribution -->
+                    <div class="analytics-card">
+                        <h3>📍 Top Locations</h3>
+                        <div class="spec-list" id="locations-chart"></div>
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div class="analytics-card full-width">
+                        <h3>🕐 Recent Activity</h3>
+                        <div class="activity-list" id="recent-activity"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Tab -->
+            <div class="tab-page" id="settings-tab">
+                <div class="page-header">
+                    <div class="page-title">
+                        <h1>Settings</h1>
+                        <p>Configure your admin dashboard</p>
+                    </div>
+                </div>
+                <div class="analytics-card" style="max-width: 600px;">
+                    <h3>⚙️ Dashboard Settings</h3>
+                    <p style="color: var(--gray-dark); margin-top: 1rem;">Settings configuration coming soon.</p>
+                    <div style="margin-top: 2rem; padding: 1.5rem; background: var(--cream); border-radius: 12px;">
+                        <h4 style="margin-bottom: 0.5rem;">API Endpoint</h4>
+                        <code style="font-size: 0.875rem; color: var(--teal-dark);">https://u37ap2ze03.execute-api.ap-south-1.amazonaws.com/prod</code>
                     </div>
                 </div>
             </div>
@@ -1880,6 +2460,419 @@
                 setTimeout(() => toast.remove(), 300);
             }, 3000);
         }
+
+        // ============================================
+        // TAB NAVIGATION
+        // ============================================
+        const navLinks = document.querySelectorAll('.sidebar-nav a');
+        const tabPages = document.querySelectorAll('.tab-page');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const tabId = link.dataset.tab;
+                
+                // Update active nav link
+                navLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+                
+                // Show active tab
+                tabPages.forEach(page => page.classList.remove('active'));
+                document.getElementById(`${tabId}-tab`).classList.add('active');
+                
+                // Load data for the tab
+                if (tabId === 'partners') {
+                    renderPartners();
+                } else if (tabId === 'analytics') {
+                    renderAnalytics();
+                }
+            });
+        });
+
+        // ============================================
+        // PARTNERS TAB FUNCTIONS
+        // ============================================
+        function getApprovedPartners() {
+            return applications.filter(app => app.status === 'APPROVED');
+        }
+
+        function renderPartners() {
+            const partners = getApprovedPartners();
+            const partnersGrid = document.getElementById('partners-grid');
+            const partnerSearch = document.getElementById('partner-search');
+            const partnerTypeFilter = document.getElementById('partner-type-filter');
+            const partnerCityFilter = document.getElementById('partner-city-filter');
+
+            // Update partner stats
+            const cities = [...new Set(partners.map(p => p.city).filter(Boolean))];
+            const individual = partners.filter(p => safe(p.partnerType, '').includes('Individual')).length;
+            const group = partners.filter(p => safe(p.partnerType, '').includes('Group')).length;
+
+            document.getElementById('partner-stat-total').textContent = partners.length;
+            document.getElementById('partner-stat-individual').textContent = individual;
+            document.getElementById('partner-stat-group').textContent = group;
+            document.getElementById('partner-stat-cities').textContent = cities.length;
+
+            // Populate city filter
+            partnerCityFilter.innerHTML = '<option value="">All Cities</option>' +
+                cities.sort().map(city => `<option value="${city}">${city}</option>`).join('');
+
+            // Apply filters
+            let filtered = [...partners];
+            
+            const search = partnerSearch.value.toLowerCase();
+            if (search) {
+                filtered = filtered.filter(p =>
+                    safe(p.firstName, '').toLowerCase().includes(search) ||
+                    safe(p.lastName, '').toLowerCase().includes(search) ||
+                    safe(p.professionalTitle, '').toLowerCase().includes(search) ||
+                    safe(p.city, '').toLowerCase().includes(search) ||
+                    (Array.isArray(p.specializations) && p.specializations.some(s => s.toLowerCase().includes(search)))
+                );
+            }
+
+            const typeFilter = partnerTypeFilter.value;
+            if (typeFilter) {
+                filtered = filtered.filter(p => safe(p.partnerType, '') === typeFilter);
+            }
+
+            const cityFilter = partnerCityFilter.value;
+            if (cityFilter) {
+                filtered = filtered.filter(p => safe(p.city, '') === cityFilter);
+            }
+
+            if (filtered.length === 0) {
+                partnersGrid.innerHTML = `
+                    <div class="empty-partners" style="grid-column: span 3;">
+                        <div class="empty-partners-icon">👥</div>
+                        <h3>${partners.length === 0 ? 'No Approved Partners Yet' : 'No Partners Match Your Filters'}</h3>
+                        <p>${partners.length === 0 ? 'Approved applications will appear here as partners.' : 'Try adjusting your search or filters.'}</p>
+                    </div>
+                `;
+                return;
+            }
+
+            partnersGrid.innerHTML = filtered.map(partner => {
+                const specs = Array.isArray(partner.specializations) 
+                    ? partner.specializations.slice(0, 4) 
+                    : [];
+                
+                return `
+                    <div class="partner-card">
+                        <div class="partner-card-header">
+                            <div class="partner-avatar">${safeInitial(partner.firstName)}${safeInitial(partner.lastName)}</div>
+                            <div class="partner-info">
+                                <h3>${safe(partner.firstName, 'Unknown')} ${safe(partner.lastName, '')}</h3>
+                                <p>${safe(partner.professionalTitle, 'Mental Health Professional')}</p>
+                            </div>
+                        </div>
+                        <div class="partner-details">
+                            <span class="partner-detail-tag">📍 ${safe(partner.city, 'Unknown')}, ${safe(partner.state, '')}</span>
+                            <span class="partner-detail-tag">🎓 ${safe(partner.yearsExperience, 'N/A')}</span>
+                            <span class="partner-detail-tag">💼 ${safe(partner.serviceDelivery, 'Virtual')}</span>
+                        </div>
+                        ${specs.length > 0 ? `
+                            <div class="partner-specializations">
+                                ${specs.map(s => `<span class="partner-spec-tag">${s}</span>`).join('')}
+                                ${Array.isArray(partner.specializations) && partner.specializations.length > 4 ? 
+                                    `<span class="partner-spec-tag">+${partner.specializations.length - 4} more</span>` : ''}
+                            </div>
+                        ` : ''}
+                        <div class="partner-contact">
+                            <a href="mailto:${safe(partner.email)}" class="email-btn">📧 Email</a>
+                            <a href="tel:${safe(partner.phone)}" class="phone-btn">📞 Call</a>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Partner filters event listeners
+        document.getElementById('partner-search').addEventListener('input', renderPartners);
+        document.getElementById('partner-type-filter').addEventListener('change', renderPartners);
+        document.getElementById('partner-city-filter').addEventListener('change', renderPartners);
+        document.getElementById('refresh-partners-btn').addEventListener('click', () => {
+            loadApplications().then(() => renderPartners());
+        });
+
+        document.getElementById('export-partners-btn').addEventListener('click', () => {
+            const partners = getApprovedPartners();
+            if (partners.length === 0) {
+                showToast('No partners to export', 'error');
+                return;
+            }
+
+            const headers = ['Name', 'Email', 'Phone', 'City', 'State', 'Title', 'Specializations', 'Languages', 'Approved Date'];
+            const rows = partners.map(p => [
+                `${safe(p.firstName)} ${safe(p.lastName)}`,
+                safe(p.email),
+                safe(p.phone),
+                safe(p.city),
+                safe(p.state),
+                safe(p.professionalTitle),
+                Array.isArray(p.specializations) ? p.specializations.join('; ') : '',
+                safe(p.languages),
+                p.updatedAt || p.submittedAt || ''
+            ]);
+
+            const csv = [headers, ...rows].map(row => row.map(cell => `"${cell}"`).join(',')).join('\n');
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `mysafespaces-partners-${new Date().toISOString().split('T')[0]}.csv`;
+            a.click();
+            URL.revokeObjectURL(url);
+
+            showToast('Partners exported successfully', 'success');
+        });
+
+        // ============================================
+        // ANALYTICS TAB FUNCTIONS
+        // ============================================
+        function renderAnalytics() {
+            const total = applications.length;
+            const approved = applications.filter(a => a.status === 'APPROVED').length;
+            const pending = applications.filter(a => a.status === 'PENDING_REVIEW').length;
+            const inReview = applications.filter(a => a.status === 'IN_REVIEW').length;
+            const rejected = applications.filter(a => a.status === 'REJECTED').length;
+
+            // Summary stats
+            document.getElementById('analytics-total').textContent = total;
+            document.getElementById('analytics-approved').textContent = approved;
+            document.getElementById('analytics-rate').textContent = total > 0 ? Math.round((approved / total) * 100) + '%' : '0%';
+            document.getElementById('analytics-pending').textContent = pending + inReview;
+
+            // Donut chart for status distribution
+            renderDonutChart({ pending, inReview, approved, rejected });
+
+            // Monthly applications bar chart
+            renderMonthlyChart();
+
+            // Top specializations
+            renderSpecializationsChart();
+
+            // Top locations
+            renderLocationsChart();
+
+            // Recent activity
+            renderRecentActivity();
+        }
+
+        function renderDonutChart(data) {
+            const container = document.getElementById('status-chart');
+            const total = data.pending + data.inReview + data.approved + data.rejected;
+            
+            if (total === 0) {
+                container.innerHTML = '<p style="text-align: center; color: var(--gray-dark);">No data available</p>';
+                return;
+            }
+
+            const colors = {
+                pending: '#FFA726',
+                inReview: '#42A5F5',
+                approved: '#66BB6A',
+                rejected: '#EF5350'
+            };
+
+            const labels = {
+                pending: 'Pending Review',
+                inReview: 'In Review',
+                approved: 'Approved',
+                rejected: 'Rejected'
+            };
+
+            // Calculate percentages for conic gradient
+            let cumulative = 0;
+            const gradientStops = [];
+            
+            Object.entries(data).forEach(([key, value]) => {
+                if (value > 0) {
+                    const start = cumulative;
+                    cumulative += (value / total) * 100;
+                    gradientStops.push(`${colors[key]} ${start}% ${cumulative}%`);
+                }
+            });
+
+            container.innerHTML = `
+                <div class="donut-chart" style="background: conic-gradient(${gradientStops.join(', ')})">
+                    <div class="donut-center">
+                        <div class="donut-center-value">${total}</div>
+                        <div class="donut-center-label">Total</div>
+                    </div>
+                </div>
+                <div class="donut-legend">
+                    ${Object.entries(data).map(([key, value]) => value > 0 ? `
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: ${colors[key]}"></div>
+                            <span>${labels[key]}: ${value} (${Math.round((value / total) * 100)}%)</span>
+                        </div>
+                    ` : '').join('')}
+                </div>
+            `;
+        }
+
+        function renderMonthlyChart() {
+            const container = document.getElementById('monthly-chart');
+            const monthlyData = {};
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            
+            // Get last 6 months
+            const now = new Date();
+            const last6Months = [];
+            for (let i = 5; i >= 0; i--) {
+                const d = new Date(now.getFullYear(), now.getMonth() - i, 1);
+                const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
+                last6Months.push({ key, label: months[d.getMonth()] });
+                monthlyData[key] = 0;
+            }
+
+            // Count applications per month
+            applications.forEach(app => {
+                if (app.submittedAt) {
+                    const date = new Date(app.submittedAt);
+                    const key = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
+                    if (monthlyData.hasOwnProperty(key)) {
+                        monthlyData[key]++;
+                    }
+                }
+            });
+
+            const maxValue = Math.max(...Object.values(monthlyData), 1);
+
+            container.innerHTML = last6Months.map(({ key, label }) => {
+                const value = monthlyData[key];
+                const height = (value / maxValue) * 160;
+                return `
+                    <div class="bar-item">
+                        <div class="bar-value">${value}</div>
+                        <div class="bar" style="height: ${height}px"></div>
+                        <div class="bar-label">${label}</div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderSpecializationsChart() {
+            const container = document.getElementById('specializations-chart');
+            const specCounts = {};
+
+            applications.forEach(app => {
+                const specs = Array.isArray(app.specializations) ? app.specializations : [];
+                specs.forEach(spec => {
+                    specCounts[spec] = (specCounts[spec] || 0) + 1;
+                });
+            });
+
+            const sorted = Object.entries(specCounts)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 6);
+
+            if (sorted.length === 0) {
+                container.innerHTML = '<p style="color: var(--gray-dark);">No specialization data available</p>';
+                return;
+            }
+
+            const maxCount = sorted[0][1];
+
+            container.innerHTML = sorted.map(([name, count]) => `
+                <div class="spec-item">
+                    <span class="spec-name">${name}</span>
+                    <div class="spec-bar-container">
+                        <div class="spec-bar" style="width: ${(count / maxCount) * 100}%"></div>
+                    </div>
+                    <span class="spec-count">${count}</span>
+                </div>
+            `).join('');
+        }
+
+        function renderLocationsChart() {
+            const container = document.getElementById('locations-chart');
+            const cityCounts = {};
+
+            applications.forEach(app => {
+                const city = safe(app.city, 'Unknown');
+                if (city && city !== 'Unknown') {
+                    cityCounts[city] = (cityCounts[city] || 0) + 1;
+                }
+            });
+
+            const sorted = Object.entries(cityCounts)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 6);
+
+            if (sorted.length === 0) {
+                container.innerHTML = '<p style="color: var(--gray-dark);">No location data available</p>';
+                return;
+            }
+
+            const maxCount = sorted[0][1];
+
+            container.innerHTML = sorted.map(([name, count]) => `
+                <div class="spec-item">
+                    <span class="spec-name">📍 ${name}</span>
+                    <div class="spec-bar-container">
+                        <div class="spec-bar" style="width: ${(count / maxCount) * 100}%"></div>
+                    </div>
+                    <span class="spec-count">${count}</span>
+                </div>
+            `).join('');
+        }
+
+        function renderRecentActivity() {
+            const container = document.getElementById('recent-activity');
+            
+            // Sort by most recent and take last 5
+            const recent = [...applications]
+                .sort((a, b) => new Date(b.submittedAt || 0) - new Date(a.submittedAt || 0))
+                .slice(0, 5);
+
+            if (recent.length === 0) {
+                container.innerHTML = '<p style="color: var(--gray-dark);">No recent activity</p>';
+                return;
+            }
+
+            container.innerHTML = recent.map(app => {
+                const statusIcons = {
+                    'PENDING_REVIEW': { icon: '📋', class: 'new', text: 'submitted' },
+                    'IN_REVIEW': { icon: '🔍', class: 'review', text: 'is being reviewed' },
+                    'APPROVED': { icon: '✅', class: 'approved', text: 'was approved' },
+                    'REJECTED': { icon: '❌', class: 'review', text: 'was rejected' }
+                };
+                const status = statusIcons[app.status] || statusIcons['PENDING_REVIEW'];
+                const timeAgo = getTimeAgo(app.updatedAt || app.submittedAt);
+
+                return `
+                    <div class="activity-item">
+                        <div class="activity-icon ${status.class}">${status.icon}</div>
+                        <div class="activity-content">
+                            <div class="activity-text"><strong>${safe(app.firstName, 'Unknown')} ${safe(app.lastName, '')}</strong> ${status.text}</div>
+                            <div class="activity-time">${timeAgo}</div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function getTimeAgo(dateStr) {
+            if (!dateStr) return 'Unknown';
+            const date = new Date(dateStr);
+            const now = new Date();
+            const diff = now - date;
+            
+            const minutes = Math.floor(diff / 60000);
+            const hours = Math.floor(diff / 3600000);
+            const days = Math.floor(diff / 86400000);
+
+            if (minutes < 60) return `${minutes} minute${minutes !== 1 ? 's' : ''} ago`;
+            if (hours < 24) return `${hours} hour${hours !== 1 ? 's' : ''} ago`;
+            if (days < 7) return `${days} day${days !== 1 ? 's' : ''} ago`;
+            return date.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' });
+        }
+
+        document.getElementById('refresh-analytics-btn').addEventListener('click', () => {
+            loadApplications().then(() => renderAnalytics());
+        });
 
         // ============================================
         // INITIALIZE
